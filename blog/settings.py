@@ -126,11 +126,8 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
-
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
-
-
-
 
 
 REST_FRAMEWORK = {
@@ -145,6 +142,6 @@ REST_FRAMEWORK = {
     ]
 }
 
-EMAIL_BACKEND ='django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 SITE_ID = 1

@@ -16,6 +16,8 @@ django-rest-swagger = "*"
 pep8 = "*"
 autopep8 = "*"
 pylint = "*"
+gunicorn = "*"
+django-heroku = "*"
 
 [requires]
 python_version = "3.7"
