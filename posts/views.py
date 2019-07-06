@@ -1,31 +1,14 @@
 from django.shortcuts import render
-# from rest_framework import generics,permissions
 from rest_framework import viewsets
-from .models import Post, Message
+from .models import Message
 from django.contrib.auth import get_user_model
-from .serializers import PostSerializer, UserSerializer, MessageSerializer
+from .serializers import UserSerializer, MessageSerializer
 from .permissions import isAuthorOrReadOnly
 from rest_framework.response import Response
 from django.db.models import Q
-# Create your views here.
-
-# class PostList(generics.ListCreateAPIView):
-#     #permission_classes = (permissions.IsAuthenticated,)
-#     #permission_classes =(isAuthorOrReadOnly,)
-#     queryset = Post.objects.all()
-#     serializer_class = PostSerializer
-
-
-class PostViewSet(viewsets.ModelViewSet):
-    #permission_classes = (permissions.IsAuthenticated,)
-    #permission_classes =(isAuthorOrReadOnly,)
-    queryset = Post.objects.all()
-    serializer_class = PostSerializer
 
 
 class MessageViewSet(viewsets.ModelViewSet):
-    #permission_classes = (permissions.IsAuthenticated,)
-    #permission_classes =(isAuthorOrReadOnly,)
     queryset = Message.objects.all()
     serializer_class = MessageSerializer
 
@@ -42,25 +25,7 @@ class UserMessagesViewSet(viewsets.ViewSet):
         serializer = MessageSerializer(queryset, many=True)
         return Response(serializer.data)
 
-# class PostDetail(generics.RetrieveUpdateDestroyAPIView):
-#     #permission_classes = (permissions.IsAuthenticated,)
-#     permission_classes =(isAuthorOrReadOnly,)
-#     queryset = Post.objects.all()
-#     serializer_class = PostSerializer
-
-
-# class UserList(generics.ListAPIView):
-#     #permission_classes = (permissions.IsAuthenticated,)
-#     #permission_classes =(isAuthorOrReadOnly,)
-#     queryset = get_user_model().objects.all()
-#     serializer_class = UserSerializer
 
 class UserViewSet(viewsets.ModelViewSet):
-    #permission_classes = (permissions.IsAuthenticated,)
-    #permission_classes =(isAuthorOrReadOnly,)
     queryset = get_user_model().objects.all()
     serializer_class = UserSerializer
-
-# class UserDetail(generics.RetrieveAPIView):
-#     queryset=get_user_model().objects.all()
-#     serializer_class = UserSerializer

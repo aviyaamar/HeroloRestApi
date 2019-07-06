@@ -6,7 +6,7 @@ from rest_framework_swagger.views import get_swagger_view
 from rest_framework.documentation import include_docs_urls
 from .views import login
 # schema_view = get_schema_view(title ='Blog API')
-schema_view = get_swagger_view(title='Blog API')
+schema_view = get_swagger_view(title='Messages API')
 
 
 urlpatterns = [
